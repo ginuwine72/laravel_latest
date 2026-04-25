@@ -25,6 +25,7 @@ class PlatformPanelProvider extends PanelProvider
             ->domain('platform.'.config('app.url'))
             ->login()
             ->topNavigation()
+            ->maxContentWidth('full')
             ->discoverResources(in: app_path('Filament/Platform/Resources'), for: 'App\Filament\Platform\Resources')
             ->discoverPages(in: app_path('Filament/Platform/Pages'), for: 'App\Filament\Platform\Pages')
             ->pages([
