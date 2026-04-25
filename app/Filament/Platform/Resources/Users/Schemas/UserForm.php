@@ -3,6 +3,7 @@
 namespace App\Filament\Platform\Resources\Users\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -35,6 +36,11 @@ class UserForm
                 Textarea::make('two_factor_recovery_codes')
                     ->columnSpanFull(),
                 DateTimePicker::make('two_factor_confirmed_at'),
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 }
