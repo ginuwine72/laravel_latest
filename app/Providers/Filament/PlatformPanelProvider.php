@@ -10,6 +10,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Enums\Width;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -24,10 +25,12 @@ class PlatformPanelProvider extends PanelProvider
         return $panel
             ->id('platform')
             ->domain('platform.'.config('app.url'))
-            ->login()
+            ->profile()
+            ->databaseTransactions()
             ->databaseNotifications()
             ->topNavigation()
-            ->maxContentWidth('full')
+            ->maxContentWidth(Width::Full)
+            ->unsavedChangesAlerts()
             ->discoverResources(in: app_path('Filament/Platform/Resources'), for: 'App\Filament\Platform\Resources')
             ->discoverPages(in: app_path('Filament/Platform/Pages'), for: 'App\Filament\Platform\Pages')
             ->pages([

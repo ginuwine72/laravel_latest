@@ -9,7 +9,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -25,10 +24,7 @@ class WebsitePanelProvider extends PanelProvider
     {
         return $panel
             ->id('website')
-            ->path('website')
-            ->colors([
-                'primary' => Color::Amber,
-            ])
+            ->domain('website.'.config('app.url'))
             ->discoverResources(in: app_path('Filament/Website/Resources'), for: 'App\Filament\Website\Resources')
             ->discoverPages(in: app_path('Filament/Website/Pages'), for: 'App\Filament\Website\Pages')
             ->pages([
@@ -36,8 +32,6 @@ class WebsitePanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Website/Widgets'), for: 'App\Filament\Website\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
