@@ -22,30 +22,14 @@ class WebsitePanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        return BasePanelConfigurator::panel()
             ->id('website')
             ->domain('website.'.config('app.url'))
-            ->discoverResources(in: app_path('Filament/Website/Resources'), for: 'App\Filament\Website\Resources')
-            ->discoverPages(in: app_path('Filament/Website/Pages'), for: 'App\Filament\Website\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Website/Widgets'), for: 'App\Filament\Website\Widgets')
-            ->widgets([
-            ])
-            ->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                PreventRequestForgery::class,
-                SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
-            ]);
+            ->discoverResources(in: app_path('Filament/Website/Resources'), for: 'App\Filament\Website\Resources')
+            ->discoverPages(in: app_path('Filament/Website/Pages'), for: 'App\Filament\Website\Pages')
+            ->discoverWidgets(in: app_path('Filament/Website/Widgets'), for: 'App\Filament\Website\Widgets');
     }
 }

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\Roles;
+namespace App\Filament\Platform\Resources\Roles;
 
+use App\Filament\Platform\Resources\Roles\Pages\CreateRole;
+use App\Filament\Platform\Resources\Roles\Pages\EditRole;
+use App\Filament\Platform\Resources\Roles\Pages\ListRoles;
+use App\Filament\Platform\Resources\Roles\Pages\ViewRole;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use App\Filament\Resources\Roles\Pages\CreateRole;
-use App\Filament\Resources\Roles\Pages\EditRole;
-use App\Filament\Resources\Roles\Pages\ListRoles;
-use App\Filament\Resources\Roles\Pages\ViewRole;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use BezhanSalleh\FilamentShield\Traits\HasShieldFormComponents;
 use BezhanSalleh\PluginEssentials\Concerns\Resource as Essentials;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\Roles\Pages;
+namespace App\Filament\Platform\Resources\Roles\Pages;
 
-use App\Filament\Resources\Roles\RoleResource;
+use App\Filament\Platform\Resources\Roles\RoleResource;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Arr;

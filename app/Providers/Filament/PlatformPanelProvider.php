@@ -22,20 +22,15 @@ class PlatformPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        return BasePanelConfigurator::panel()
             ->id('platform')
             ->domain('platform.'.config('app.url'))
-            ->profile()
-            ->databaseTransactions()
-            ->databaseNotifications()
-            ->topNavigation()
-            ->maxContentWidth(Width::Full)
-            ->unsavedChangesAlerts()
-            ->discoverResources(in: app_path('Filament/Platform/Resources'), for: 'App\Filament\Platform\Resources')
-            ->discoverPages(in: app_path('Filament/Platform/Pages'), for: 'App\Filament\Platform\Pages')
             ->pages([
                 Dashboard::class,
             ])
+            ->discoverResources(in: app_path('Filament/Platform/Resources'), for: 'App\Filament\Platform\Resources')
+            ->discoverPages(in: app_path('Filament/Platform/Pages'), for: 'App\Filament\Platform\Pages')
+            ->discoverWidgets(in: app_path('Filament/Platform/Widgets'), for: 'App\Filament\Platform\Widgets')
             ->plugins([
                 FilamentShieldPlugin::make()
                     ->navigationLabel('Roles')
@@ -57,22 +52,7 @@ class PlatformPanelProvider extends PanelProvider
                         'sm' => 2,
                     ]),
             ])
-            ->discoverWidgets(in: app_path('Filament/Platform/Widgets'), for: 'App\Filament\Platform\Widgets')
             ->widgets([
-            ])
-            ->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                PreventRequestForgery::class,
-                SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
             ]);
     }
 }
