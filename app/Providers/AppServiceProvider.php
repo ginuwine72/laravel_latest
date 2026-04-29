@@ -3,8 +3,6 @@
 namespace App\Providers;
 
 use Carbon\CarbonImmutable;
-use Filament\Panel;
-use Filament\Support\Enums\Width;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;

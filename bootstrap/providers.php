@@ -1,11 +1,19 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\Filament\AdminPanelProvider;
+use App\Providers\Filament\CustomerPanelProvider;
+use App\Providers\Filament\PlatformPanelProvider;
+use App\Providers\Filament\WebsitePanelProvider;
+use App\Providers\FortifyServiceProvider;
+use App\Providers\HorizonServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\Filament\AdminPanelProvider::class,
-    App\Providers\Filament\CustomerPanelProvider::class,
-    App\Providers\Filament\PlatformPanelProvider::class,
-    App\Providers\Filament\WebsitePanelProvider::class,
-    App\Providers\FortifyServiceProvider::class,
-    App\Providers\HorizonServiceProvider::class,
+    AppServiceProvider::class,
+    AdminPanelProvider::class,
+    CustomerPanelProvider::class,
+    PlatformPanelProvider::class,
+    WebsitePanelProvider::class,
+    FortifyServiceProvider::class,
+    HorizonServiceProvider::class,
 ];
