@@ -24,6 +24,7 @@ class BasePanelConfigurator
         $panel = Panel::make();
 
         return $panel
+            ->login()
             ->profile()
             ->databaseTransactions()
             ->databaseNotifications()
@@ -33,7 +34,7 @@ class BasePanelConfigurator
             ->multiFactorAuthentication([
                 EmailAuthentication::make(),
                 AppAuthentication::make()->recoverable(),
-            ])
+            ], isRequired: true)
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
