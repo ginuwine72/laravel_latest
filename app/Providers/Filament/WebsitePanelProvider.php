@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Pages\Dashboard;
+use App\Filament\Website\Pages\WebsiteDashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 
@@ -14,7 +14,7 @@ class WebsitePanelProvider extends PanelProvider
             ->id('website')
             ->domain('website.'.config('app.url'))
             ->pages([
-                Dashboard::class,
+                WebsiteDashboard::class,
             ])
             ->discoverResources(in: app_path('Filament/Website/Resources'), for: 'App\Filament\Website\Resources')
             ->discoverPages(in: app_path('Filament/Website/Pages'), for: 'App\Filament\Website\Pages')

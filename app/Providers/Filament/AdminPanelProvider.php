@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Pages\Dashboard;
+use App\Filament\Admin\Pages\AdminDashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 
@@ -15,7 +15,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->domain('admin.'.config('app.url'))
             ->pages([
-                Dashboard::class,
+                AdminDashboard::class,
             ])
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
