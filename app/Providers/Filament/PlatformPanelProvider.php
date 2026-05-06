@@ -2,8 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Platform\Pages\PlatformDashboard;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 
@@ -15,7 +15,10 @@ class PlatformPanelProvider extends PanelProvider
             ->id('platform')
             ->domain('platform.'.config('app.url'))
             ->pages([
-                Dashboard::class,
+                PlatformDashboard::class,
+            ])
+            ->resources([
+                config('filament-logger.activity_resource'),
             ])
             ->discoverResources(in: app_path('Filament/Platform/Resources'), for: 'App\Filament\Platform\Resources')
             ->discoverPages(in: app_path('Filament/Platform/Pages'), for: 'App\Filament\Platform\Pages')
